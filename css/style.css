@@ -1,0 +1,133 @@
+*,
+*::before,
+::after {
+    box-sizing: border-box;
+}
+
+
+
+body {
+    background-color: sandybrown;
+}
+
+
+.counting-box {
+    position: absolute;
+    width: 1000px;
+    height: 400px;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.numbers {
+    width: 100px;
+    height: 125px;
+    background-color: transparent;
+    border-bottom: 5px solid #fff;
+    border-top: 5px solid #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transform-origin: center;
+    overflow: hidden;
+    animation: rotate 3s ease-in-out;
+    animation-delay: 10s;
+    animation-fill-mode: forwards;
+
+}
+
+.number {
+    height: 100vh;
+    font-size: 5em;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    position: relative;
+    animation: count 10s steps(10);
+    animation-fill-mode: forwards;
+}
+
+.counting-box #caption {
+    color: #fff;
+    font-size: 5em;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: caption 1.5s ease-in-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    animation-delay: 12s;
+}
+
+.pulse {
+    animation: pulse .6s infinite;
+    animation-delay: 13.5s;
+    color: crimson;
+}
+
+@keyframes count {
+    0% {
+        top: 0;
+    }
+
+    98% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        top: -1000vh;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+        transform-origin: center;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) rotate(90deg);
+        transform-origin: center;
+        height: 5px;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(90deg);
+        transform-origin: center;
+        height: 350px;
+    }
+}
+
+
+@keyframes caption {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        transform-origin: center;
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        transform-origin: center;
+        opacity: 1;
+    }
+}
+
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+        transform-origin: center;
+    }
+    50% {
+        transform: scale(1.35);
+        transform-origin: center;
+    }
+}
